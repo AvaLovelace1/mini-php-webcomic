@@ -1,11 +1,11 @@
 # mini-php-webcomic
 
+<img src="screenshot-1.png" alt="Comic page screenshot" width="400"/><img src="screenshot-2.png" alt="Archive page screenshot" width="400"/>
+
 **mini-php-webcomic** is a minimal, responsive webcomic template built with PHP and MariaDB.
 It was created for my comic, *[Academy 118](https://academy118.com)*.
 
 > Not into PHP? Try **[mini-hugo-webcomic](https://github.com/AvaLovelace1/mini-hugo-webcomic)**!
-
-<img src="screenshot-1.png" alt="Comic page screenshot" width="480"/><img src="screenshot-2.png" alt="Archive page screenshot" width="480"/>
 
 ## Installation
 
