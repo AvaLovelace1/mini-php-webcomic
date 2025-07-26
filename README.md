@@ -20,7 +20,7 @@ Place the repository contents into the root directory of your web server.
 
 ### Database setup
 
-**mini-php-webcomic** stores comics in an SQL database. We recommend using [MariaDB](https://mariadb.com) for database
+**mini-php-webcomic** stores comics in an SQL database. I recommend using [MariaDB](https://mariadb.com) for database
 management.
 
 After [installing MariaDB](https://mariadb.com/download/), start
