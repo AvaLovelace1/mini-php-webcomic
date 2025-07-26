@@ -9,14 +9,14 @@ include_once("./php/databasecomic.php");
 <html lang="en">
 
 <head>
-    <title>Mini Webcomic - <?= get_title($curr_comic) ?> Page <?= get_page_number($curr_comic) ?></title>
+    <title><?= get_title($curr_comic) ?> • Mini Webcomic</title>
     <?php include_once("php/head.php") ?>
 </head>
 
-<body>
+<body class="d-flex flex-column min-vh-100">
 
 <?php include_once("php/header.php") ?>
-<?php include_once("php/content.php") ?>
+<?php include_once("php/comiccontent.php") ?>
 <?php include_once("php/footer.php") ?>
 <?php include_once("php/tail.php") ?>
 

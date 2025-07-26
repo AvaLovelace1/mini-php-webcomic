@@ -1,3 +1,10 @@
-<footer class="py-3 bg-dark text-center text-white">
-    <small>Copyright &copy; Your Name 2021</small>
+<footer class="bg-dark text-center text-bg-dark mt-auto py-3">
+    <small>
+        © 2025 Your Name •
+        Powered by
+        <a href="https://github.com/AvaLovelace1/mini-php-webcomic"
+           class="link-light" target="_blank" rel="external noopener noreferrer">
+            mini-php-webcomic
+        </a>
+    </small>
 </footer>

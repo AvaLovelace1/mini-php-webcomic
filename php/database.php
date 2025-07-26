@@ -4,7 +4,7 @@ const SERVER_NAME = "localhost";
 const USERNAME = "testuser";
 const PASSWORD = "testpassword";
 const DB_NAME = "miniwebcomic";
-const COMICS_DIR = "comics/";
+const COMICS_DIR = "img/comic/";
 
 $conn = new mysqli(SERVER_NAME, USERNAME, PASSWORD, DB_NAME);
 
@@ -44,6 +44,12 @@ function get_filepath($comic): string
     return COMICS_DIR . $p["filename"] . "_" . zero_pad($comic["page_number"]) . "." . $p["extension"];
 }
 
+function get_thumbnail_filepath($comic): string
+{
+    $p = pathinfo($comic["filename"]);
+    return COMICS_DIR . $p["filename"] . "_thumb" . "." . $p["extension"];
+}
+
 function zero_pad($str): string
 {
     return str_pad($str, 3, "0", STR_PAD_LEFT);
@@ -67,4 +73,9 @@ function get_publish_date($comic): string
 function get_featured_characters($comic): string
 {
     return $comic["featured_characters"];
+}
+
+function get_transcript($comic): string
+{
+    return $comic["transcript"];
 }

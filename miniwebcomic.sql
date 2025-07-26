@@ -1,8 +1,9 @@
--- MariaDB dump 10.19  Distrib 10.6.4-MariaDB, for osx10.14 (x86_64)
+/*M!999999\- enable the sandbox mode */ 
+-- MariaDB dump 10.19-11.8.2-MariaDB, for osx10.20 (arm64)
 --
--- Host: 127.0.0.1    Database: miniwebcomic
+-- Host: localhost    Database: miniwebcomic
 -- ------------------------------------------------------
--- Server version	10.6.4-MariaDB
+-- Server version	11.8.2-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -13,7 +14,7 @@
 /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+/*M!100616 SET @OLD_NOTE_VERBOSITY=@@NOTE_VERBOSITY, NOTE_VERBOSITY=0 */;
 
 --
 -- Table structure for table `comics`
@@ -21,7 +22,7 @@
 
 DROP TABLE IF EXISTS `comics`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `comics` (
   `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
   `episode_id` smallint(5) unsigned NOT NULL,
@@ -29,10 +30,11 @@ CREATE TABLE `comics` (
   `publish_date` date NOT NULL,
   `featured_characters` text DEFAULT NULL,
   `hover` text DEFAULT NULL,
+  `transcript` text DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `comics_episodes_id_fk` (`episode_id`),
   CONSTRAINT `comics_episodes_id_fk` FOREIGN KEY (`episode_id`) REFERENCES `episodes` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,9 +43,18 @@ CREATE TABLE `comics` (
 
 LOCK TABLES `comics` WRITE;
 /*!40000 ALTER TABLE `comics` DISABLE KEYS */;
-INSERT INTO `comics` VALUES (1,1,1,'2021-01-01','Platinum, Nickel','when I wrote this comic I didn’t know you had to be 18 to play the lottery :P'),(2,2,1,'2021-01-08','Argon, Neon','This is a noble gas’s idea of heaven'),(3,2,2,'2021-01-15','Platinum, Silver','bruh'),(4,2,3,'2021-01-22','Iron, Neodymium, Silicon','The best method: read periodic-table-themed webcomics');
+set autocommit=0;
+INSERT INTO `comics` VALUES
+(1,1,1,'2023-12-01','Character 1, Character 2','Add your hover text here.','<p>Write your comic description or transcript here.</p>'),
+(2,1,2,'2023-12-01','Character 1, Character 2','Add your hover text here.','<p>Write your comic description or transcript here.</p>'),
+(3,1,3,'2023-12-01','Character 1, Character 2','Add your hover text here.','<p>Write your comic description or transcript here.</p>'),
+(4,2,1,'2023-12-02','Character 1, Character 2','Add your hover text here.','<p>Write your comic description or transcript here.</p>'),
+(5,3,1,'2023-12-03','Character 1, Character 2','Add your hover text here.','<p>Write your comic description or transcript here.</p>'),
+(6,3,2,'2023-12-03','Character 1, Character 2','Add your hover text here.','<p>Write your comic description or transcript here.</p>'),
+(7,3,3,'2023-12-03','Character 1, Character 2','Add your hover text here.','<p>Write your comic description or transcript here.</p>');
 /*!40000 ALTER TABLE `comics` ENABLE KEYS */;
 UNLOCK TABLES;
+commit;
 
 --
 -- Table structure for table `episodes`
@@ -51,7 +62,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `episodes`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `episodes` (
   `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(60) NOT NULL,
@@ -59,7 +70,7 @@ CREATE TABLE `episodes` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `episodes_filename_uindex` (`filename`),
   UNIQUE KEY `episodes_title_uindex` (`title`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -68,9 +79,14 @@ CREATE TABLE `episodes` (
 
 LOCK TABLES `episodes` WRITE;
 /*!40000 ALTER TABLE `episodes` DISABLE KEYS */;
-INSERT INTO `episodes` VALUES (1,'Lottery Tickets','lottery-tickets.jpg'),(2,'Quarantine Capers','quarantine-capers.jpg');
+set autocommit=0;
+INSERT INTO `episodes` VALUES
+(1,'Hydrogen for President','hydrogen-for-president.jpg'),
+(2,'Study Time','study-time.jpg'),
+(3,'Carbon Copies','carbon-copies.jpg');
 /*!40000 ALTER TABLE `episodes` ENABLE KEYS */;
 UNLOCK TABLES;
+commit;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -79,6 +95,6 @@ UNLOCK TABLES;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+/*M!100616 SET NOTE_VERBOSITY=@OLD_NOTE_VERBOSITY */;
 
--- Dump completed on 2021-10-09 16:05:18
+-- Dump completed on 2025-07-26 15:36:29

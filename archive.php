@@ -2,11 +2,11 @@
 <html lang="en">
 
 <head>
-    <title>Mini Webcomic - Archive</title>
+    <title>Archive • Mini Webcomic</title>
     <?php include_once("php/head.php") ?>
 </head>
 
-<body>
+<body class="d-flex flex-column min-vh-100">
 
 <?php include_once("php/header.php") ?>
 <?php include_once("php/archivecontent.php") ?>
